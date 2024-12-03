@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependent Dropdown Menus</title>
+</head>
+<body>
+    <h1>Static Dependent Dropdown Example</h1>
+    <label for="menu1">Menu 1:</label>
+    <select id="menu1" name="menu1" onchange="showMenu(this.value)">
+        <option value="">-- Select an option --</option>
+        <option value="fruits">Fruits</option>
+        <option value="colors">Colors</option>
+    </select>
+
+    <!-- Fruits Dropdown -->
+    <div id="fruits" style="display: none;">
+        <label for="menu2-fruits">Menu 2 (Fruits):</label>
+        <select id="menu2-fruits" name="menu2-fruits">
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="orange">Orange</option>
+        </select>
+    </div>
+
+    <!-- Colors Dropdown -->
+    <div id="colors" style="display: none;">
+        <label for="menu2-colors">Menu 2 (Colors):</label>
+        <select id="menu2-colors" name="menu2-colors">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+
+    <script>
+        // Script required to switch menus (This does not adhere to "HTML-only" restriction)
+        function showMenu(value) {
+            document.getElementById('fruits').style.display = 'none';
+            document.getElementById('colors').style.display = 'none';
+
+            if (value) {
+                document.getElementById(value).style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

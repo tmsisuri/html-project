@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject to Degree Programs</title>
+    <style>
+        .degree-list {
+            display: none; /* Hide all lists initially */
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Subject to See Degree Programs</h1>
+
+    <!-- Dropdown Menu -->
+    <label for="subject">Choose a subject:</label>
+    <select id="subject" onchange="showPrograms(this.value)">
+        <option value="">-- Select a Subject --</option>
+        <option value="math">Mathematics</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+    </select>
+
+    <!-- Degree Programs -->
+    <div id="programs">
+        <div id="math" class="degree-list">
+            <h2>Mathematics Degree Programs:</h2>
+            <ul>
+                <li>Bachelor of Science in Mathematics</li>
+                <li>Bachelor of Science in Applied Mathematics</li>
+                <li>Bachelor of Science in Statistics</li>
+            </ul>
+        </div>
+        <div id="physics" class="degree-list">
+            <h2>Physics Degree Programs:</h2>
+            <ul>
+                <li>Bachelor of Science in Physics</li>
+                <li>Bachelor of Science in Astrophysics</li>
+                <li>Bachelor of Science in Quantum Mechanics</li>
+            </ul>
+        </div>
+        <div id="chemistry" class="degree-list">
+            <h2>Chemistry Degree Programs:</h2>
+            <ul>
+                <li>Bachelor of Science in Chemistry</li>
+                <li>Bachelor of Science in Biochemistry</li>
+                <li>Bachelor of Science in Environmental Chemistry</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Show degree programs based on the selected subject
+        function showPrograms(subject) {
+            // Hide all degree lists
+            const lists = document.querySelectorAll('.degree-list');
+            lists.forEach(list => list.style.display = 'none');
+
+            // Show the selected subject's degree list
+            if (subject) {
+                const selectedList = document.getElementById(subject);
+                if (selectedList) {
+                    selectedList.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

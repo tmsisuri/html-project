@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Degree Program Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, select {
+            display: block;
+            margin: 10px 0;
+        }
+        #degree-programs {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Degree Program Selector</h1>
+
+    <!-- Dropdown Menus -->
+    <label for="subject1">Subject 1:</label>
+    <select id="subject1">
+        <option value="">-- Select Subject 1 --</option>
+        <option value="math">Mathematics</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+    </select>
+
+    <label for="subject2">Subject 2:</label>
+    <select id="subject2">
+        <option value="">-- Select Subject 2 --</option>
+        <option value="math">Mathematics</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+    </select>
+
+    <label for="subject3">Subject 3:</label>
+    <select id="subject3">
+        <option value="">-- Select Subject 3 --</option>
+        <option value="math">Mathematics</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+    </select>
+
+    <!-- Degree Programs -->
+    <div id="degree-programs">
+        <h2>Degree Programs:</h2>
+        <ul id="program-list">
+            <!-- Dynamically populated -->
+        </ul>
+    </div>
+
+    <script>
+        // Degree programs for specific subject combinations
+        const degreePrograms = {
+            "math-physics-chemistry": ["Bachelor of Science in Engineering", "Bachelor of Science in Physical Sciences"],
+            "math-chemistry-biology": ["Bachelor of Science in Biochemistry", "Bachelor of Science in Environmental Science"],
+            "physics-chemistry-biology": ["Bachelor of Science in Applied Sciences", "Bachelor of Science in Nanotechnology"]
+        };
+
+        // Function to handle dropdown changes
+        function updatePrograms() {
+            const subject1 = document.getElementById('subject1').value;
+            const subject2 = document.getElementById('subject2').value;
+            const subject3 = document.getElementById('subject3').value;
+
+            // Combine selected subjects into a key
+            const selectedKey = [subject1, subject2, subject3].sort().join('-');
+            
+            // Get the program list element
+            const programList = document.getElementById('program-list');
+            programList.innerHTML = ""; // Clear existing list
+
+            // Check if there's a match for the selected combination
+            if (degreePrograms[selectedKey]) {
+                degreePrograms[selectedKey].forEach(program => {
+                    const li = document.createElement('li');
+                    li.textContent = program;
+                    programList.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.textContent = "No degree programs available for the selected subjects.";
+                programList.appendChild(li);
+            }
+        }
+
+        // Attach event listeners to dropdowns
+        document.getElementById('subject1').addEventListener('change', updatePrograms);
+        document.getElementById('subject2').addEventListener('change', updatePrograms);
+        document.getElementById('subject3').addEventListener('change', updatePrograms);
+    </script>
+</body>
+</html>

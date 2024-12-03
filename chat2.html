@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Program Finder</title>
+</head>
+<body>
+  <header>
+    <h1>Degree Program Finder</h1>
+    <p>Select a subject to see the related degree programs.</p>
+  </header>
+
+  <main>
+    <!-- Dropdown Menu -->
+    <section>
+      <h2>Choose Your Subject</h2>
+      <form>
+        <label for="subject">Select a Subject:</label><br>
+        <select id="subject" name="subject" onchange="location = this.value;">
+          <option value="">--Choose a Subject--</option>
+          <option value="#engineering">Maths</option>
+          <option value="#science">Science</option>
+          <option value="#arts">English</option>
+        </select>
+      </form>
+    </section>
+
+    <!-- Degree Program Sections -->
+    <section id="engineering">
+      <h2>Degree Programs for Maths</h2>
+      <ul>
+        <li>Engineering</li>
+        <li>Information Technology</li>
+        <li>Data Science</li>
+        <li>Applied Mathematics</li>
+      </ul>
+    </section>
+
+    <section id="science">
+      <h2>Degree Programs for Science</h2>
+      <ul>
+        <li>Biology</li>
+        <li>Chemistry</li>
+        <li>Environmental Science</li>
+        <li>Physics</li>
+      </ul>
+    </section>
+
+    <section id="arts">
+      <h2>Degree Programs for English</h2>
+      <ul>
+        <li>Literature</li>
+        <li>Media Studies</li>
+        <li>Law</li>
+        <li>Business Management</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Career Compass. All rights reserved.</p>
+  </footer>
+</body>
+</html>
